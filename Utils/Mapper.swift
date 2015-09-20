@@ -11,14 +11,14 @@ import Foundation
 
 @objc public class Mapper : NSObject {
     override public class func memoKey() -> String {return "Mapper"}
-    func to(t:AnyObject?)->AnyObject? {return t}
-    func back(u:AnyObject?)->AnyObject? {return u}
+    public func to(t:AnyObject?)->AnyObject? {return t}
+    public func back(u:AnyObject?)->AnyObject? {return u}
     
-    class func joinPath(name:String) -> Mapper {
+    public class func joinPath(name:String) -> Mapper {
         let maps = name.componentsSeparatedByString(".").flatMap {Mapper.memo($0)}
         return join(maps)
     }
-    class func join(maps:[Mapper]) -> Mapper {
+    public class func join(maps:[Mapper]) -> Mapper {
         return ClosureMapper(
             to:{Array(Array(Array(maps.reverse()))).reduce($0) { res, next in next.to(res)}},
             back: {maps.reduce($0) { res, next in next.back(res)}}
@@ -28,9 +28,9 @@ import Foundation
 
 @objc public class ClosureMapper:Mapper {
     let _to:AnyObject?->AnyObject?
-    override func to(t: AnyObject?) -> AnyObject? {return _to(t)}
+    override public func to(t: AnyObject?) -> AnyObject? {return _to(t)}
     let _back:AnyObject?->AnyObject?
-    override func back(u: AnyObject?) -> AnyObject? {return _back(u)}
+    override public func back(u: AnyObject?) -> AnyObject? {return _back(u)}
     
     public init (to:AnyObject?->AnyObject? = {_ in nil}, back:AnyObject?->AnyObject? = {_ in nil}) {
         (self._to, self._back) = (to, back)
@@ -42,11 +42,11 @@ import Foundation
     var dict:[String:String]
     var backDict:[String:String]
     
-    override func to(t: AnyObject?) -> AnyObject? {
+    override public func to(t: AnyObject?) -> AnyObject? {
         let d = (t as? NSObject)?.dictionaryWithValuesForKeys(Array(dict.keys))
         return d?.map {[weak self] k,v in (self!.dict[k]!,v)}
     }
-    override func back(u: AnyObject?) -> AnyObject? {
+    override public func back(u: AnyObject?) -> AnyObject? {
         let d = (u as? NSObject)?.dictionaryWithValuesForKeys(Array(backDict.keys))
         return d?.map {[weak self] k,v in (self!.backDict[k]!,v)}
     }
