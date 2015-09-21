@@ -8,17 +8,17 @@
 
 import Foundation
 
-struct SparseArray<T> : CollectionType {
-    typealias Element = (Int, T)
-    typealias Index = DictionaryIndex<Int, T>
+public struct SparseArray<T> : CollectionType {
+    public typealias Element = (Int, T)
+    public typealias Index = DictionaryIndex<Int, T>
     var indices = NSMutableIndexSet()
 
     var accessor = [Int: T]()
-    var startIndex: Index {return accessor.startIndex}
-    var endIndex: Index {return accessor.endIndex}
-    subscript (position: Index) -> Element {return accessor[position]}
+    public var startIndex: Index {return accessor.startIndex}
+    public var endIndex: Index {return accessor.endIndex}
+    public subscript (position: Index) -> Element {return accessor[position]}
     
-    func generate() -> AnyGenerator<Element> {
+    public func generate() -> AnyGenerator<Element> {
         var last = indices.firstIndex - 1
         return anyGenerator {
             last = self.indices.indexGreaterThanIndex(last)
@@ -26,7 +26,7 @@ struct SparseArray<T> : CollectionType {
         }
     }
     
-    subscript (i idx:Int)->T? {
+    public subscript (i idx:Int)->T? {
         get {return accessor[idx]}
         set (value) {
             if let v = value {
@@ -37,14 +37,14 @@ struct SparseArray<T> : CollectionType {
         }
     }
     
-    mutating func append(value:T, index:Int = 0)->Int {
+    public mutating func append(value:T, index:Int = 0)->Int {
         let next = max(indices.count > 0 ? indices.lastIndex + 1 : 0, index)
         indices.addIndex(next)
         accessor[index] = value
         return next
     }
     
-    mutating func removeAtIndex(index: Int) {
+    public mutating func removeAtIndex(index: Int) {
         accessor[index] = nil
         indices.removeIndex(index)
     }
