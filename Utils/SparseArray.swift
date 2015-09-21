@@ -9,6 +9,7 @@
 import Foundation
 
 public struct SparseArray<T> : CollectionType {
+    public init(){}
     public typealias Element = (Int, T)
     public typealias Index = DictionaryIndex<Int, T>
     var indices = NSMutableIndexSet()
