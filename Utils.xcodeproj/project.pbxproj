@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5327C61D1BAFF47D00D4C8F6 /* SparseArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5327C61B1BAFF47D00D4C8F6 /* SparseArray.swift */; };
+		5327C61E1BAFF47D00D4C8F6 /* Lock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5327C61C1BAFF47D00D4C8F6 /* Lock.swift */; };
 		53E1184D1BAF337900E3CC50 /* Utils.h in Headers */ = {isa = PBXBuildFile; fileRef = 53E1184C1BAF337900E3CC50 /* Utils.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		53E118541BAF337900E3CC50 /* Utils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E118491BAF337900E3CC50 /* Utils.framework */; };
 		53E118591BAF337900E3CC50 /* UtilsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E118581BAF337900E3CC50 /* UtilsTests.swift */; };
@@ -26,6 +28,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5327C61B1BAFF47D00D4C8F6 /* SparseArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SparseArray.swift; sourceTree = "<group>"; };
+		5327C61C1BAFF47D00D4C8F6 /* Lock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lock.swift; sourceTree = "<group>"; };
 		53E118491BAF337900E3CC50 /* Utils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Utils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		53E1184C1BAF337900E3CC50 /* Utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		53E1184E1BAF337900E3CC50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -81,6 +85,8 @@
 				53E118641BAF340F00E3CC50 /* Utils.m */,
 				53E118691BAF346C00E3CC50 /* Mapper.swift */,
 				53E1186A1BAF346C00E3CC50 /* Utils.swift */,
+				5327C61B1BAFF47D00D4C8F6 /* SparseArray.swift */,
+				5327C61C1BAFF47D00D4C8F6 /* Lock.swift */,
 				53E1184E1BAF337900E3CC50 /* Info.plist */,
 			);
 			path = Utils;
@@ -204,6 +210,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				53E1186B1BAF346C00E3CC50 /* Mapper.swift in Sources */,
+				5327C61E1BAFF47D00D4C8F6 /* Lock.swift in Sources */,
+				5327C61D1BAFF47D00D4C8F6 /* SparseArray.swift in Sources */,
 				53E118671BAF340F00E3CC50 /* Utils.m in Sources */,
 				53E1186C1BAF346C00E3CC50 /* Utils.swift in Sources */,
 			);
@@ -391,6 +399,7 @@
 				53E1185F1BAF337900E3CC50 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		53E118601BAF337900E3CC50 /* Build configuration list for PBXNativeTarget "UtilsTests" */ = {
 			isa = XCConfigurationList;
@@ -399,6 +408,7 @@
 				53E118621BAF337900E3CC50 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

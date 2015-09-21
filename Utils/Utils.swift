@@ -8,9 +8,13 @@
 
 import UIKit
 
-class Box<T> {
-    var value : T
-    init(_ value: T) {self.value = value}
+public func PostNote(name:String! = nil, object: AnyObject? = nil, userInfo:[NSObject : AnyObject]? = nil) {
+    NSNotificationCenter.defaultCenter().postNotificationName(name, object: object, userInfo:userInfo)
+}
+
+public class Box<T> {
+    public var value : T
+    public init(_ value: T) {self.value = value}
 }
 
 extension Dictionary {
