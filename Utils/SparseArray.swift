@@ -20,9 +20,9 @@ public struct SparseArray<T> : CollectionType {
     public subscript (position: Index) -> Element {return accessor[position]}
     
     public func generate() -> AnyGenerator<Element> {
-        var last = indices.firstIndex - 1
+        var last = indices.firstIndex
         return anyGenerator {
-            last = self.indices.indexGreaterThanIndex(last)
+            last = self.indices.indexGreaterThanOrEqualToIndex(last)
             return last != NSNotFound ? (last, self.accessor[last]!) : nil
         }
     }
