@@ -8,22 +8,22 @@
 
 import Foundation
 
-class Lock {
+public class Lock {
     private var spinlock:OSSpinLock = OS_SPINLOCK_INIT
     
-    func tryLock()->(Bool) {
+    public func tryLock()->(Bool) {
         return withUnsafeMutablePointer(&spinlock, OSSpinLockTry)
     }
     
-    func lock() {
+    public func lock() {
         withUnsafeMutablePointer(&spinlock, OSSpinLockLock)
     }
     
-    func unlock() {
+    public func unlock() {
         withUnsafeMutablePointer(&spinlock, OSSpinLockUnlock)
     }
     
-    func locked<T>(fun:()->T) -> T {
+    public func locked<T>(fun:()->T) -> T {
         var result:T!
         withUnsafeMutablePointer(&spinlock) {(lock:UnsafeMutablePointer<OSSpinLock>)->() in
             OSSpinLockLock(lock)
