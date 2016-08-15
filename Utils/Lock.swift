@@ -23,7 +23,7 @@ public class Lock {
         withUnsafeMutablePointer(&spinlock, OSSpinLockUnlock)
     }
     
-    public func locked<T>(fun:()->T) -> T {
+    public func locked<T>(_ fun:()->T) -> T {
         var result:T!
         withUnsafeMutablePointer(&spinlock) {(lock:UnsafeMutablePointer<OSSpinLock>)->() in
             OSSpinLockLock(lock)
@@ -34,7 +34,7 @@ public class Lock {
     }
 }
 
-public func locked<T>(lock: AnyObject, fun: ()->T) -> T {
+public func locked<T>(_ lock: AnyObject, fun: ()->T) -> T {
     objc_sync_enter(lock)
     let result: T = fun()
     objc_sync_exit(lock)

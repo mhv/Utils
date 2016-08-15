@@ -9,10 +9,10 @@
 /* Begin PBXBuildFile section */
 		5327C61D1BAFF47D00D4C8F6 /* SparseArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5327C61B1BAFF47D00D4C8F6 /* SparseArray.swift */; };
 		5327C61E1BAFF47D00D4C8F6 /* Lock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5327C61C1BAFF47D00D4C8F6 /* Lock.swift */; };
-		53E1184D1BAF337900E3CC50 /* Utils.h in Headers */ = {isa = PBXBuildFile; fileRef = 53E1184C1BAF337900E3CC50 /* Utils.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		53DB6D3A1D62218400FE71CC /* Memoable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DB6D391D62218400FE71CC /* Memoable.swift */; };
+		53DB6D3C1D62383800FE71CC /* Tapable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DB6D3B1D62383800FE71CC /* Tapable.swift */; };
 		53E118541BAF337900E3CC50 /* Utils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E118491BAF337900E3CC50 /* Utils.framework */; };
 		53E118591BAF337900E3CC50 /* UtilsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E118581BAF337900E3CC50 /* UtilsTests.swift */; };
-		53E118671BAF340F00E3CC50 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E118641BAF340F00E3CC50 /* Utils.m */; };
 		53E1186B1BAF346C00E3CC50 /* Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E118691BAF346C00E3CC50 /* Mapper.swift */; };
 		53E1186C1BAF346C00E3CC50 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E1186A1BAF346C00E3CC50 /* Utils.swift */; };
 /* End PBXBuildFile section */
@@ -30,13 +30,13 @@
 /* Begin PBXFileReference section */
 		5327C61B1BAFF47D00D4C8F6 /* SparseArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SparseArray.swift; sourceTree = "<group>"; };
 		5327C61C1BAFF47D00D4C8F6 /* Lock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lock.swift; sourceTree = "<group>"; };
+		53DB6D391D62218400FE71CC /* Memoable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Memoable.swift; sourceTree = "<group>"; };
+		53DB6D3B1D62383800FE71CC /* Tapable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tapable.swift; sourceTree = "<group>"; };
 		53E118491BAF337900E3CC50 /* Utils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Utils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		53E1184C1BAF337900E3CC50 /* Utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		53E1184E1BAF337900E3CC50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		53E118531BAF337900E3CC50 /* UtilsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UtilsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		53E118581BAF337900E3CC50 /* UtilsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilsTests.swift; sourceTree = "<group>"; };
 		53E1185A1BAF337900E3CC50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		53E118641BAF340F00E3CC50 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
 		53E118691BAF346C00E3CC50 /* Mapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mapper.swift; sourceTree = "<group>"; };
 		53E1186A1BAF346C00E3CC50 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -81,8 +81,8 @@
 		53E1184B1BAF337900E3CC50 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				53E1184C1BAF337900E3CC50 /* Utils.h */,
-				53E118641BAF340F00E3CC50 /* Utils.m */,
+				53DB6D3B1D62383800FE71CC /* Tapable.swift */,
+				53DB6D391D62218400FE71CC /* Memoable.swift */,
 				53E118691BAF346C00E3CC50 /* Mapper.swift */,
 				53E1186A1BAF346C00E3CC50 /* Utils.swift */,
 				5327C61B1BAFF47D00D4C8F6 /* SparseArray.swift */,
@@ -108,7 +108,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				53E1184D1BAF337900E3CC50 /* Utils.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,14 +157,16 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0710;
-				LastUpgradeCheck = 0710;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Mikhail Vroubel";
 				TargetAttributes = {
 					53E118481BAF337900E3CC50 = {
 						CreatedOnToolsVersion = 7.1;
+						LastSwiftMigration = 0800;
 					};
 					53E118521BAF337900E3CC50 = {
 						CreatedOnToolsVersion = 7.1;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -212,8 +213,9 @@
 				53E1186B1BAF346C00E3CC50 /* Mapper.swift in Sources */,
 				5327C61E1BAFF47D00D4C8F6 /* Lock.swift in Sources */,
 				5327C61D1BAFF47D00D4C8F6 /* SparseArray.swift in Sources */,
-				53E118671BAF340F00E3CC50 /* Utils.m in Sources */,
 				53E1186C1BAF346C00E3CC50 /* Utils.swift in Sources */,
+				53DB6D3A1D62218400FE71CC /* Memoable.swift in Sources */,
+				53DB6D3C1D62383800FE71CC /* Tapable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,8 +251,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -297,8 +301,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -329,6 +335,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -340,6 +347,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -347,6 +355,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -357,6 +366,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = mhv.Utils;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -367,6 +378,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = mhv.UtilsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -377,6 +389,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = mhv.UtilsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

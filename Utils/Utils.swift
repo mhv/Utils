@@ -8,8 +8,8 @@
 
 import UIKit
 
-public func PostNote(name:String! = nil, object: AnyObject? = nil, userInfo:[NSObject : AnyObject]? = nil) {
-    NSNotificationCenter.defaultCenter().postNotificationName(name, object: object, userInfo:userInfo)
+public func PostNote(_ name:String! = nil, object: AnyObject? = nil, userInfo:[NSObject : AnyObject]? = nil) {
+    NotificationCenter.default.post(name: Notification.Name(rawValue: name), object: object, userInfo:userInfo)
 }
 
 public class Box<T> {
@@ -18,7 +18,7 @@ public class Box<T> {
 }
 
 extension Dictionary {
-    public func map<K,V>(@noescape transform: (Dictionary.Generator.Element) -> (K,V)) -> Dictionary<K,V> {
+    public func map<K,V>(_ transform: @noescape (Dictionary.Iterator.Element) -> (K,V)) -> Dictionary<K,V> {
         var dict = Dictionary<K,V>()
         for e in self {
             let (k,v) = transform(e)
