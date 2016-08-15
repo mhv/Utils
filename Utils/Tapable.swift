@@ -8,11 +8,11 @@
 
 import Foundation
 
-public protocol Tapable {}
+public protocol Tapable:class {}
 
 extension Tapable {
-    public mutating func tap( _ block: @noescape (inout Self) -> ()) -> Self {
-        block(&self)
+    public func tap( _ block: @noescape (Self) -> ()) -> Self {
+        block(self)
         return self
     }
 }

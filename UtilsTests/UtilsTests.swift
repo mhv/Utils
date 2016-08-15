@@ -14,7 +14,8 @@ class Some: Memoable {
         return "Some"
     }
 }
-class Other: Some {
+class Other: Some,Tapable {
+    var prop:Int = 0
     override class func memoKey()->String {
         return "Other"
     }
@@ -30,6 +31,11 @@ class UtilsTests: XCTestCase {
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
+    }
+    
+    func testTapable() {
+        let a = Other().tap {$0.prop = 10}
+        XCTAssert(a.prop == 10)
     }
     
     func testSparseArray() {
